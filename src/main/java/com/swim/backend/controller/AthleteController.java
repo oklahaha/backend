@@ -9,13 +9,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.swim.backend.dto.AthleteDto;
 import com.swim.backend.model.Athlete;
 import com.swim.backend.repository.AthleteRepository;
 import com.swim.backend.service.AthleteService;
@@ -31,29 +32,30 @@ public class AthleteController {
     @Autowired
     private AthleteRepository athleteRepository;
 
-    @GetMapping("/list")
+    @GetMapping("/listAthlete")
     public List<Athlete> listAthlete() {
         return athleteService.listAthlete();
     }
 
-    @GetMapping("/{athleteId}")
-    public Athlete getAthleteById(@PathVariable Integer athleteId) {
+    @GetMapping("/getAthlete")
+    public Athlete getAthleteById(@RequestParam(name = "athleteId", required = true) Integer athleteId) {
         return athleteService.getAthlete(athleteId);
     }
 
-    @PostMapping("/add")
-    public ResponseEntity<Athlete> addAthlete(@RequestBody Athlete athlete) {
+    @PostMapping("/addAthlete")
+    public ResponseEntity<Athlete> addAthlete(@RequestBody AthleteDto newAthlete) {
         try {
-            Athlete newAthlete = athleteService.saveAthlete(athlete);
-            return new ResponseEntity<>(newAthlete, HttpStatus.CREATED);
+            Athlete athlete = newAthlete.toModel();
+            athlete = athleteService.saveAthlete(athlete);
+            return new ResponseEntity<>(athlete, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-    @PutMapping("/{athleteId}")
-    public ResponseEntity<Athlete> updateAthlete(@PathVariable Integer athleteId, @RequestBody Athlete newAthlete) {
-        Optional<Athlete> dbAthlete = athleteRepository.findById(athleteId);
+    @PutMapping("/editAthlete")
+    public ResponseEntity<Athlete> updateAthlete(@RequestBody AthleteDto newAthlete) {
+        Optional<Athlete> dbAthlete = athleteRepository.findById(newAthlete.getAthleteId());
 
         if (dbAthlete.isPresent()) {
             Athlete updateAthlete = dbAthlete.get();
@@ -66,8 +68,8 @@ public class AthleteController {
             if (newAthlete.getAge() != null) {
                 updateAthlete.setAge(newAthlete.getAge());
             }
-            if (newAthlete.getSex() != null) {
-                updateAthlete.setSex(newAthlete.getSex());
+            if (newAthlete.getGender() != null) {
+                updateAthlete.setGender(newAthlete.getGender());
             }
             if (newAthlete.getPhone() != null) {
                 updateAthlete.setPhone(newAthlete.getPhone());
@@ -78,8 +80,8 @@ public class AthleteController {
         }
     }
 
-    @DeleteMapping("/{athleteId}")
-    public ResponseEntity<HttpStatus> deleteAthlete(@PathVariable Integer athleteId) {
+    @DeleteMapping("/deleteAthlete")
+    public ResponseEntity<HttpStatus> deleteAthlete(@RequestParam(name = "athleteId", required = true) Integer athleteId) {
         try {
             athleteService.deleteAthlete(athleteId);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

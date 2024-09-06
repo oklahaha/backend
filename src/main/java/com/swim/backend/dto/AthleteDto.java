@@ -1,17 +1,11 @@
-package com.swim.backend.model;
+package com.swim.backend.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import org.springframework.beans.BeanUtils;
 
-@Entity
-@Table(name = "athlete")
-public class Athlete {
+import com.swim.backend.model.Athlete;
+
+public class AthleteDto {
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer athleteId;
 
     private String engName;
@@ -25,6 +19,20 @@ public class Athlete {
     private String district;
 
     private Integer phone;
+
+    public AthleteDto() {
+
+    }
+
+    public AthleteDto(Athlete athlete) {
+        BeanUtils.copyProperties(athlete, this);
+    }
+
+    public Athlete toModel() {
+        Athlete model = new Athlete();
+        BeanUtils.copyProperties(this, model);
+        return model;
+    }
 
     public Integer getAthleteId() {
         return athleteId;
@@ -84,8 +92,8 @@ public class Athlete {
 
     @Override
     public String toString() {
-        return "Athlete [athleteId=" + athleteId + ", engName=" + engName + ", chName=" + chName + ", gender=" + gender
-                + ", age=" + age + ", district=" + district + ", phone=" + phone + "]";
+        return "AthleteDto [athleteId=" + athleteId + ", engName=" + engName + ", chName=" + chName + ", gender="
+                + gender + ", age=" + age + ", district=" + district + ", phone=" + phone + "]";
     }
 
 }
