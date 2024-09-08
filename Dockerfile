@@ -1,5 +1,7 @@
 FROM tomcat:10.1.24-jre17
 
-WORKDIR /user/local/tomcat/webapps
+COPY build/libs/ROOT.war /usr/local/tomcat/webapps/
 
-COPY ROOT.war .
+EXPOSE 8080
+
+CMD ["catalina.sh", "run"]
