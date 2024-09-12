@@ -15,6 +15,8 @@ public interface FiftyMBackstrokeRepository extends JpaRepository<FiftyMBackstro
 
     List<FiftyMBackstroke> findAll(Specification<FiftyMBackstroke> specification, Sort sort);
 
+    List<FiftyMBackstroke> findByGenderAndAge(String gender, Integer age);
+
     FiftyMBackstroke findByAthleteId(Athlete athleteId);
 
     void deleteByAthleteId(Athlete athleteId);

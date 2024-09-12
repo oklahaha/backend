@@ -28,6 +28,10 @@ public class FiftyMKickBoardService {
         return fiftyMKickBoardRepository.findAll();
     }
 
+    public List<FiftyMKickBoard> listFiftyMKickBoardByGenderAndAge(String gender, Integer age) {
+        return fiftyMKickBoardRepository.findByGenderAndAge(gender, age);
+    }
+
     public FiftyMKickBoard getFiftyMKickBoard(String id) {
         return fiftyMKickBoardRepository.findById(id).orElse(null);
     }

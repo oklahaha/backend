@@ -1,7 +1,5 @@
 package com.swim.backend.dto;
 
-import java.time.LocalTime;
-
 import org.springframework.beans.BeanUtils;
 
 import com.swim.backend.model.HundredMBreaststroke;
@@ -18,7 +16,7 @@ public class HundredMBreaststrokeDto {
 
     private String district;
 
-    private LocalTime time;
+    private String time;
 
     public HundredMBreaststrokeDto() {
         setAthleteId(new AthleteDto());
@@ -53,6 +51,14 @@ public class HundredMBreaststrokeDto {
         this.athleteId = athleteId;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
     public Integer getAge() {
         return age;
     }
@@ -69,20 +75,12 @@ public class HundredMBreaststrokeDto {
         this.district = district;
     }
 
-    public LocalTime getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(LocalTime time) {
+    public void setTime(String time) {
         this.time = time;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
     }
 
     @Override
@@ -90,7 +88,5 @@ public class HundredMBreaststrokeDto {
         return "HundredMBreaststrokeDto [id=" + id + ", athleteId=" + athleteId + ", gender=" + gender + ", age=" + age
                 + ", district=" + district + ", time=" + time + "]";
     }
-
-
-
+    
 }

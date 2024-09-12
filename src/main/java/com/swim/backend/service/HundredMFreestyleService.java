@@ -28,6 +28,10 @@ public class HundredMFreestyleService {
         return hundredMFreestyleRepository.findAll();
     }
 
+    public List<HundredMFreestyle> listHundredMFreestyleByGenderAndAge(String gender, Integer age) {
+        return hundredMFreestyleRepository.findByGenderAndAge(gender, age);
+    }
+
     public HundredMFreestyle getHundredMFreestyle(String id) {
         return hundredMFreestyleRepository.findById(id).orElse(null);
     }

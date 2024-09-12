@@ -29,6 +29,10 @@ public class FiftyMBackstrokeService {
         return fiftyMBackstrokeRepository.findAll();
     }
 
+    public List<FiftyMBackstroke> listFiftyMBackstrokeByGenderAndAge(String gender, Integer age) {
+        return fiftyMBackstrokeRepository.findByGenderAndAge(gender, age);
+    }
+
     public FiftyMBackstroke getfiftyMBackstroke(String id) {
         return fiftyMBackstrokeRepository.findById(id).orElse(null);
     }

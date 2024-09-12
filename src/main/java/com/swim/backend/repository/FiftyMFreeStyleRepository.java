@@ -15,6 +15,8 @@ public interface FiftyMFreeStyleRepository extends JpaRepository<FiftyMFreeStyle
 
     List<FiftyMFreeStyle> findAll(Specification<FiftyMFreeStyle> specification, Sort sort);
 
+    List<FiftyMFreeStyle> findByGenderAndAge(String gender, Integer age);
+
     FiftyMFreeStyle findByAthleteId(Athlete athleteId);
 
     void deleteByAthleteId(Athlete athleteId);

@@ -28,6 +28,10 @@ public class FiftyMButterflystrokeService {
         return fiftyMButterflystrokeRepository.findAll();
     }
 
+    public List<FiftyMButterflystroke> listFiftyMButterflystrokeByGenderAndAge(String gender, Integer age) {
+        return fiftyMButterflystrokeRepository.findByGenderAndAge(gender, age);
+    }
+
     public FiftyMButterflystroke getFiftyMButterflystroke(String id) {
         return fiftyMButterflystrokeRepository.findById(id).orElse(null);
     }

@@ -1,7 +1,5 @@
 package com.swim.backend.model;
 
-import java.time.LocalTime;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -29,7 +27,7 @@ public class HundredMBreaststroke {
 
     private String district;
 
-    private LocalTime time;
+    private String time;
 
     public String getId() {
         return id;
@@ -45,6 +43,14 @@ public class HundredMBreaststroke {
 
     public void setAthleteId(Athlete athleteId) {
         this.athleteId = athleteId;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public Integer getAge() {
@@ -63,20 +69,12 @@ public class HundredMBreaststroke {
         this.district = district;
     }
 
-    public LocalTime getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(LocalTime time) {
+    public void setTime(String time) {
         this.time = time;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
     }
 
     @Override

@@ -1,7 +1,5 @@
 package com.swim.backend.dto;
 
-import java.time.LocalTime;
-
 import org.springframework.beans.BeanUtils;
 
 import com.swim.backend.model.FiftyMBackstroke;
@@ -9,16 +7,11 @@ import com.swim.backend.model.FiftyMBackstroke;
 public class FiftyMBackstrokeDto {
     
     private String id;
-
     private AthleteDto athleteId;
-
     private String gender;
-
     private Integer age;
-
     private String district;
-
-    private LocalTime time;
+    private String time;
 
     public FiftyMBackstrokeDto() {
         setAthleteId(new AthleteDto());
@@ -33,8 +26,8 @@ public class FiftyMBackstrokeDto {
 
     public FiftyMBackstroke toModel() {
         FiftyMBackstroke model = new FiftyMBackstroke();
-		BeanUtils.copyProperties(this, model);
-		return model;
+        BeanUtils.copyProperties(this, model);
+        return model;
     }
 
     public String getId() {
@@ -53,6 +46,14 @@ public class FiftyMBackstrokeDto {
         this.athleteId = athleteId;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
     public Integer getAge() {
         return age;
     }
@@ -69,20 +70,12 @@ public class FiftyMBackstrokeDto {
         this.district = district;
     }
 
-    public LocalTime getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(LocalTime time) {
+    public void setTime(String time) {
         this.time = time;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
     }
 
     @Override

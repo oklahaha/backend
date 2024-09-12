@@ -296,6 +296,15 @@ public class AthleteController {
         }
     }
 
+    @GetMapping("/batchUpdateAthlete")
+    public String batchUpdateAthlete() {
+        List<AthleteDto> athleteList = athleteService.listAthleteDto();
+        for(AthleteDto athlete : athleteList) {
+            updateAthlete(athlete);
+        }
+        return "success";
+    }
+
     @DeleteMapping("/deleteAthlete")
     public ResponseEntity<HttpStatus> deleteAthlete(@RequestParam(name = "athleteId", required = true) Integer athleteId) {
         try {

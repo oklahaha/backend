@@ -15,6 +15,8 @@ public interface HundredMFreestyleRepository extends JpaRepository<HundredMFrees
 
     List<HundredMFreestyle> findAll(Specification<HundredMFreestyle> specification, Sort sort);
 
+    List<HundredMFreestyle> findByGenderAndAge(String gender, Integer age);
+
     HundredMFreestyle findByAthleteId(Athlete athleteId);
 
     void deleteByAthleteId(Athlete athleteId);

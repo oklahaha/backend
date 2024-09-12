@@ -1,11 +1,13 @@
 package com.swim.backend.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.swim.backend.dto.AthleteDto;
 import com.swim.backend.model.Athlete;
 import com.swim.backend.repository.AthleteRepository;
 import com.swim.backend.repository.FiftyMBackstrokeRepository;
@@ -53,6 +55,14 @@ public class AthleteService {
     
     public List<Athlete> listAthlete() {
         return athleteRepository.findAll();
+    }
+
+    public List<AthleteDto> listAthleteDto() {
+        List<Athlete> athletes = athleteRepository.findAll();
+        if (athletes == null) {
+            return null;
+        }
+        return athletes.stream().map(AthleteDto::new).collect(Collectors.toList());
     }
 
     public Athlete getAthlete(Integer athleteId) {
