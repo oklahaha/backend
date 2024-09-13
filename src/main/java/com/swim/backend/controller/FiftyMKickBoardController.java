@@ -55,9 +55,9 @@ public class FiftyMKickBoardController {
 
             List<FiftyMKickBoard> fiftyMKickBoardList = new ArrayList<>();
 
-            if(age == 15) {
+            if(age == 6) {
                 fiftyMKickBoardList = fiftyMKickBoardService.listFiftyMKickBoard().stream()
-                    .filter(h -> h.getAge() >= 15)
+                    .filter(h -> h.getAge() <= 6)
                     .collect(Collectors.toList());
             } else {
                 fiftyMKickBoardList = fiftyMKickBoardService.listFiftyMKickBoardByGenderAndAge(gender, age);
