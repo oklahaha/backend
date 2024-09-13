@@ -57,7 +57,7 @@ public class HundredMBreaststrokeController {
 
             if(age == 15) {
                 hundredMBreaststrokeList = hundredMBreaststrokeService.listHundredMBreaststroke().stream()
-                    .filter(h -> h.getAge() >= 15)
+                    .filter(h -> h.getAge() >= 15 && h.getGender().equals(gender))
                     .collect(Collectors.toList());
             } else {
                 hundredMBreaststrokeList = hundredMBreaststrokeService.listHundredMBreaststrokeByGenderAndAge(gender, age);

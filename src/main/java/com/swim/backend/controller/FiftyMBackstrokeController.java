@@ -57,7 +57,7 @@ public class FiftyMBackstrokeController {
 
             if(age == 15) {
                 fiftyMBackstrokeList = fiftyMBackstrokeService.listFiftyMBackstroke().stream()
-                    .filter(h -> h.getAge() >= 15)
+                    .filter(h -> h.getAge() >= 15 && h.getGender().equals(gender))
                     .collect(Collectors.toList());
             } else {
                 fiftyMBackstrokeList = fiftyMBackstrokeService.listFiftyMBackstrokeByGenderAndAge(gender, age);

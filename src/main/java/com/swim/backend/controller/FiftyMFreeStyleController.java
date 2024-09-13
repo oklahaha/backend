@@ -57,7 +57,7 @@ public class FiftyMFreeStyleController {
 
             if(age == 15) {
                 fiftyMFreeStyleList = fiftyMFreeStyleService.listFiftyMFreeStyle().stream()
-                    .filter(h -> h.getAge() >= 15)
+                    .filter(h -> h.getAge() >= 15 && h.getGender().equals(gender))
                     .collect(Collectors.toList());
             } else {
                 fiftyMFreeStyleList = fiftyMFreeStyleService.listFiftyMFreeStyleByGenderAndAge(gender, age);

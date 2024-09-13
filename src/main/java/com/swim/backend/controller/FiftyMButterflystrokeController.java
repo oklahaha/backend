@@ -57,7 +57,7 @@ public class FiftyMButterflystrokeController {
 
             if(age == 15) {
                 fiftyMButterflystrokeList = fiftyMButterflystrokeService.listFiftyMButterflystroke().stream()
-                    .filter(h -> h.getAge() >= 15)
+                    .filter(h -> h.getAge() >= 15 && h.getGender().equals(gender))
                     .collect(Collectors.toList());
             } else {
                 fiftyMButterflystrokeList = fiftyMButterflystrokeService.listFiftyMButterflystrokeByGenderAndAge(gender, age);

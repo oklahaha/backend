@@ -57,7 +57,7 @@ public class HundredMFreestyleController {
 
             if(age == 15) {
                 hundredMFreestyleList = hundredMFreestyleService.listHundredMFreestyle().stream()
-                    .filter(h -> h.getAge() >= 15)
+                    .filter(h -> h.getAge() >= 15 && h.getGender().equals(gender))
                     .collect(Collectors.toList());
             } else {
                 hundredMFreestyleList = hundredMFreestyleService.listHundredMFreestyleByGenderAndAge(gender, age);
