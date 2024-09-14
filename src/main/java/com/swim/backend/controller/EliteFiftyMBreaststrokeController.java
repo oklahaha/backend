@@ -46,28 +46,6 @@ public class EliteFiftyMBreaststrokeController {
         return eliteFiftyMBreaststrokeList;
     }
 
-    @GetMapping("/listEliteFiftyMBreaststrokeByGenderAndAge")
-    public List<EliteFiftyMBreaststroke> listEliteFiftyMBreaststrokeByGenderAndAge(
-        @RequestParam(name = "gender", required = true) String gender,
-        @RequestParam(name = "age", required = true) Integer age
-        ) {
-            Log4j2.entryLog("", className, "listEliteFiftyMBreaststrokeByGenderAndAge");
-
-            List<EliteFiftyMBreaststroke> eliteFiftyMBreaststrokeList = new ArrayList<>();
-
-            if(age == 15) {
-                eliteFiftyMBreaststrokeList = eliteFiftyMBreaststrokeService.listEliteFiftyMBreaststroke().stream()
-                    .filter(h -> h.getAge() >= 15 && h.getGender().equals(gender))
-                    .collect(Collectors.toList());
-            } else {
-                eliteFiftyMBreaststrokeList = eliteFiftyMBreaststrokeService.listEliteFiftyMBreaststrokeByGenderAndAge(gender, age);
-            }
-
-            Log4j2.exitLog("", className, "listEliteFiftyMBreaststroke eliteFiftyMBreaststrokeList = " + eliteFiftyMBreaststrokeList);
-
-        return eliteFiftyMBreaststrokeList;
-    }
-
     @GetMapping("/getEliteFiftyMBreaststroke")
     public EliteFiftyMBreaststrokeDto getEliteFiftyMBreaststrokeById(@RequestParam(name = "id", required = true) String id) {
         Log4j2.entryLog("", className, "getEliteFiftyMBreaststrokeById id = " + id);

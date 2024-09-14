@@ -46,28 +46,6 @@ public class EliteFiftyMBackstrokeController {
         return eliteFiftyMBackstrokeList;
     }
 
-    @GetMapping("/listEliteFiftyMBackstrokeByGenderAndAge")
-    public List<EliteFiftyMBackstroke> listEliteFiftyMBackstrokeByGenderAndAge(
-        @RequestParam(name = "gender", required = true) String gender,
-        @RequestParam(name = "age", required = true) Integer age
-        ) {
-            Log4j2.entryLog("", className, "listEliteFiftyMBackstrokeByGenderAndAge");
-
-            List<EliteFiftyMBackstroke> eliteFiftyMBackstrokeList = new ArrayList<>();
-
-            if(age == 15) {
-                eliteFiftyMBackstrokeList = eliteFiftyMBackstrokeService.listEliteFiftyMBackstroke().stream()
-                    .filter(h -> h.getAge() >= 15 && h.getGender().equals(gender))
-                    .collect(Collectors.toList());
-            } else {
-                eliteFiftyMBackstrokeList = eliteFiftyMBackstrokeService.listEliteFiftyMBackstrokeByGenderAndAge(gender, age);
-            }
-
-            Log4j2.exitLog("", className, "listEliteFiftyMBackstroke eliteFiftyMBackstrokeList = " + eliteFiftyMBackstrokeList);
-
-        return eliteFiftyMBackstrokeList;
-    }
-
     @GetMapping("/getEliteFiftyMBackstroke")
     public EliteFiftyMBackstrokeDto getEliteFiftyMBackstrokeById(@RequestParam(name = "id", required = true) String id) {
         Log4j2.entryLog("", className, "getEliteFiftyMBackstrokeById id = " + id);

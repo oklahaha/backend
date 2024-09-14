@@ -46,28 +46,6 @@ public class EliteHundredMFreestyleController {
         return eliteHundredMFreestyleList;
     }
 
-    @GetMapping("/listEliteHundredMFreestyleByGenderAndAge")
-    public List<EliteHundredMFreestyle> listEliteHundredMFreestyleByGenderAndAge(
-        @RequestParam(name = "gender", required = true) String gender,
-        @RequestParam(name = "age", required = true) Integer age
-        ) {
-            Log4j2.entryLog("", className, "listEliteHundredMFreestyleByGenderAndAge");
-
-            List<EliteHundredMFreestyle> eliteHundredMFreestyleList = new ArrayList<>();
-
-            if(age == 15) {
-                eliteHundredMFreestyleList = eliteHundredMFreestyleService.listEliteHundredMFreestyle().stream()
-                    .filter(h -> h.getAge() >= 15 && h.getGender().equals(gender))
-                    .collect(Collectors.toList());
-            } else {
-                eliteHundredMFreestyleList = eliteHundredMFreestyleService.listEliteHundredMFreestyleByGenderAndAge(gender, age);
-            }
-
-            Log4j2.exitLog("", className, "listEliteHundredMFreestyle eliteHundredMFreestyleList = " + eliteHundredMFreestyleList);
-
-        return eliteHundredMFreestyleList;
-    }
-
     @GetMapping("/getEliteHundredMFreestyle")
     public EliteHundredMFreestyleDto getEliteHundredMFreestyleById(@RequestParam(name = "id", required = true) String id) {
         Log4j2.entryLog("", className, "getEliteHundredMFreestyleById id = " + id);

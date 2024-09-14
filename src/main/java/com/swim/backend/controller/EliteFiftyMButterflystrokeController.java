@@ -46,28 +46,6 @@ public class EliteFiftyMButterflystrokeController {
         return eliteFiftyMButterflystrokeList;
     }
 
-    @GetMapping("/listEliteFiftyMButterflystrokeByGenderAndAge")
-    public List<EliteFiftyMButterflystroke> listEliteFiftyMButterflystrokeByGenderAndAge(
-        @RequestParam(name = "gender", required = true) String gender,
-        @RequestParam(name = "age", required = true) Integer age
-        ) {
-            Log4j2.entryLog("", className, "listEliteFiftyMButterflystrokeByGenderAndAge");
-
-            List<EliteFiftyMButterflystroke> eliteFiftyMButterflystrokeList = new ArrayList<>();
-
-            if(age == 15) {
-                eliteFiftyMButterflystrokeList = eliteFiftyMButterflystrokeService.listEliteFiftyMButterflystroke().stream()
-                    .filter(h -> h.getAge() >= 15 && h.getGender().equals(gender))
-                    .collect(Collectors.toList());
-            } else {
-                eliteFiftyMButterflystrokeList = eliteFiftyMButterflystrokeService.listEliteFiftyMButterflystrokeByGenderAndAge(gender, age);
-            }
-
-            Log4j2.exitLog("", className, "listEliteFiftyMButterflystroke eliteFiftyMButterflystrokeList = " + eliteFiftyMButterflystrokeList);
-
-        return eliteFiftyMButterflystrokeList;
-    }
-
     @GetMapping("/getEliteFiftyMButterflystroke")
     public EliteFiftyMButterflystrokeDto getEliteFiftyMButterflystrokeById(@RequestParam(name = "id", required = true) String id) {
         Log4j2.entryLog("", className, "getEliteFiftyMButterflystrokeById id = " + id);
