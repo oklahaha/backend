@@ -15,7 +15,7 @@ public interface EliteFiftyMFreeStyleRepository extends JpaRepository<EliteFifty
 
     List<EliteFiftyMFreeStyle> findAll(Specification<EliteFiftyMFreeStyle> specification, Sort sort);
 
-    List<EliteFiftyMFreeStyle> findByGenderAndAge(String gender, Integer age);
+    List<EliteFiftyMFreeStyle> findByGenderAndAgeOrderByTimeAsc(String gender, Integer age);
 
     EliteFiftyMFreeStyle findByAthleteId(Athlete athleteId);
 

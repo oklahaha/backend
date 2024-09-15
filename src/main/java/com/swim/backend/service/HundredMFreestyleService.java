@@ -29,7 +29,7 @@ public class HundredMFreestyleService {
     }
 
     public List<HundredMFreestyle> listHundredMFreestyleByGenderAndAge(String gender, Integer age) {
-        return hundredMFreestyleRepository.findByGenderAndAge(gender, age);
+        return hundredMFreestyleRepository.findByGenderAndAgeOrderByTimeAsc(gender, age);
     }
 
     public HundredMFreestyle getHundredMFreestyle(String id) {

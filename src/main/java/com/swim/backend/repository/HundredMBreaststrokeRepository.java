@@ -15,7 +15,7 @@ public interface HundredMBreaststrokeRepository extends JpaRepository<HundredMBr
 
     List<HundredMBreaststroke> findAll(Specification<HundredMBreaststroke> specification, Sort sort);
 
-    List<HundredMBreaststroke> findByGenderAndAge(String gender, Integer age);
+    List<HundredMBreaststroke> findByGenderAndAgeOrderByTimeAsc(String gender, Integer age);
 
     HundredMBreaststroke findByAthleteId(Athlete athleteId);
 

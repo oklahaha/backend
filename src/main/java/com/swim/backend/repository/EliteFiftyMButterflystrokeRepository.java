@@ -15,7 +15,7 @@ public interface EliteFiftyMButterflystrokeRepository extends JpaRepository<Elit
 
     List<EliteFiftyMButterflystroke> findAll(Specification<EliteFiftyMButterflystroke> specification, Sort sort);
 
-    List<EliteFiftyMButterflystroke> findByGenderAndAge(String gender, Integer age);
+    List<EliteFiftyMButterflystroke> findByGenderAndAgeOrderByTimeAsc(String gender, Integer age);
 
     EliteFiftyMButterflystroke findByAthleteId(Athlete athleteId);
 

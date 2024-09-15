@@ -30,7 +30,7 @@ public class FiftyMBackstrokeService {
     }
 
     public List<FiftyMBackstroke> listFiftyMBackstrokeByGenderAndAge(String gender, Integer age) {
-        return fiftyMBackstrokeRepository.findByGenderAndAge(gender, age);
+        return fiftyMBackstrokeRepository.findByGenderAndAgeOrderByTimeAsc(gender, age);
     }
 
     public FiftyMBackstroke getfiftyMBackstroke(String id) {

@@ -15,7 +15,7 @@ public interface EliteFiftyMBreaststrokeRepository extends JpaRepository<EliteFi
 
     List<EliteFiftyMBreaststroke> findAll(Specification<EliteFiftyMBreaststroke> specification, Sort sort);
 
-    List<EliteFiftyMBreaststroke> findByGenderAndAge(String gender, Integer age);
+    List<EliteFiftyMBreaststroke> findByGenderAndAgeOrderByTimeAsc(String gender, Integer age);
 
     EliteFiftyMBreaststroke findByAthleteId(Athlete athleteId);
 

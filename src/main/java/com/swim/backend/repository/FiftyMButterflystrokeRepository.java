@@ -15,7 +15,7 @@ public interface FiftyMButterflystrokeRepository extends JpaRepository<FiftyMBut
 
     List<FiftyMButterflystroke> findAll(Specification<FiftyMButterflystroke> specification, Sort sort);
 
-    List<FiftyMButterflystroke> findByGenderAndAge(String gender, Integer age);
+    List<FiftyMButterflystroke> findByGenderAndAgeOrderByTimeAsc(String gender, Integer age);
 
     FiftyMButterflystroke findByAthleteId(Athlete athleteId);
 

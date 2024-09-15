@@ -30,7 +30,7 @@ public class EliteFiftyMBackstrokeService {
     }
 
     public List<EliteFiftyMBackstroke> listEliteFiftyMBackstrokeByGenderAndAge(String gender, Integer age) {
-        return eliteFiftyMBackstrokeRepository.findByGenderAndAge(gender, age);
+        return eliteFiftyMBackstrokeRepository.findByGenderAndAgeOrderByTimeAsc(gender, age);
     }
 
     public EliteFiftyMBackstroke geteliteFiftyMBackstroke(String id) {

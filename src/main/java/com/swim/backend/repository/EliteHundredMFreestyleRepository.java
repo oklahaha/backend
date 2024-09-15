@@ -15,7 +15,7 @@ public interface EliteHundredMFreestyleRepository extends JpaRepository<EliteHun
 
     List<EliteHundredMFreestyle> findAll(Specification<EliteHundredMFreestyle> specification, Sort sort);
 
-    List<EliteHundredMFreestyle> findByGenderAndAge(String gender, Integer age);
+    List<EliteHundredMFreestyle> findByGenderAndAgeOrderByTimeAsc(String gender, Integer age);
 
     EliteHundredMFreestyle findByAthleteId(Athlete athleteId);
 

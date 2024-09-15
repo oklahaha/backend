@@ -29,7 +29,7 @@ public class FiftyMKickBoardService {
     }
 
     public List<FiftyMKickBoard> listFiftyMKickBoardByGenderAndAge(String gender, Integer age) {
-        return fiftyMKickBoardRepository.findByGenderAndAge(gender, age);
+        return fiftyMKickBoardRepository.findByGenderAndAgeOrderByTimeAsc(gender, age);
     }
 
     public FiftyMKickBoard getFiftyMKickBoard(String id) {

@@ -29,7 +29,7 @@ public class FiftyMFreeStyleService {
     }
 
     public List<FiftyMFreeStyle> listFiftyMFreeStyleByGenderAndAge(String gender, Integer age) {
-        return fiftyMFreeStyleRepository.findByGenderAndAge(gender, age);
+        return fiftyMFreeStyleRepository.findByGenderAndAgeOrderByTimeAsc(gender, age);
     }
 
     public FiftyMFreeStyle getFiftyMFreeStyle(String id) {

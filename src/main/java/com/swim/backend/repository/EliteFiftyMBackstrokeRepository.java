@@ -15,7 +15,7 @@ public interface EliteFiftyMBackstrokeRepository extends JpaRepository<EliteFift
 
     List<EliteFiftyMBackstroke> findAll(Specification<EliteFiftyMBackstroke> specification, Sort sort);
 
-    List<EliteFiftyMBackstroke> findByGenderAndAge(String gender, Integer age);
+    List<EliteFiftyMBackstroke> findByGenderAndAgeOrderByTimeAsc(String gender, Integer age);
 
     EliteFiftyMBackstroke findByAthleteId(Athlete athleteId);
 

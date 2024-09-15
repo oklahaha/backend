@@ -29,7 +29,7 @@ public class EliteFiftyMButterflystrokeService {
     }
 
     public List<EliteFiftyMButterflystroke> listEliteFiftyMButterflystrokeByGenderAndAge(String gender, Integer age) {
-        return eliteFiftyMButterflystrokeRepository.findByGenderAndAge(gender, age);
+        return eliteFiftyMButterflystrokeRepository.findByGenderAndAgeOrderByTimeAsc(gender, age);
     }
 
     public EliteFiftyMButterflystroke getEliteFiftyMButterflystroke(String id) {

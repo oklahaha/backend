@@ -29,7 +29,7 @@ public class EliteHundredMBreaststrokeService {
     }
 
     public List<EliteHundredMBreaststroke> listEliteHundredMBreaststrokeByGenderAndAge(String gender, Integer age) {
-        return eliteHundredMBreaststrokeRepository.findByGenderAndAge(gender, age);
+        return eliteHundredMBreaststrokeRepository.findByGenderAndAgeOrderByTimeAsc(gender, age);
     }
 
     public EliteHundredMBreaststroke getEliteHundredMBreaststroke(String id) {

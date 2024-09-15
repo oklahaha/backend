@@ -15,7 +15,7 @@ public interface FiftyMKickBoardRepository extends JpaRepository<FiftyMKickBoard
 
     List<FiftyMKickBoard> findAll(Specification<FiftyMKickBoard> specification, Sort sort);
 
-    List<FiftyMKickBoard> findByGenderAndAge(String gender, Integer age);
+    List<FiftyMKickBoard> findByGenderAndAgeOrderByTimeAsc(String gender, Integer age);
 
     FiftyMKickBoard findByAthleteId(Athlete athleteId);
 

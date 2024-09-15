@@ -29,7 +29,7 @@ public class FiftyMBreaststrokeService {
     }
 
     public List<FiftyMBreaststroke> listFiftyMBreaststrokeByGenderAndAge(String gender, Integer age) {
-        return fiftyMBreaststrokeRepository.findByGenderAndAge(gender, age);
+        return fiftyMBreaststrokeRepository.findByGenderAndAgeOrderByTimeAsc(gender, age);
     }
 
     public FiftyMBreaststroke getFiftyMBreaststroke(String id) {
